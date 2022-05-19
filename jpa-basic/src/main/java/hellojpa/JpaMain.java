@@ -6,6 +6,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+// 영속성 컨텍스트
+// "엔티티를 영구 저장하는 환경"
+// 영속성 컨텍스트는 논리적 개념
+// 엔티티 매니절르 통해서 영속성 컨텍스트에 접근
+
 public class JpaMain {
 	public static void main(String[] args) {
 		// Application 로딩 시점에 딱 하나만 만들자

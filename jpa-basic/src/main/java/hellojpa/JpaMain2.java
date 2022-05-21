@@ -17,14 +17,16 @@ public class JpaMain2 {
 		try {
 			// 비영속
 			Member member = new Member();
-			member.setId(100l);
+			member.setId(101l);
 			member.setName("HelloJPa");
 
 			// 영속 - DB에 저장되는 것 아님. 영속성 컨텍스트에 저장되는 것.
+			System.out.println(" === BEFORE === ");
 			em.persist(member);
+			System.out.println(" === AFTER === ");
 
 			// 준영속 - 영속성 컨텍스트에서 제거
-			em.detach(member);
+			// em.detach(member);
 
 			// 삭제 - DB 삭제
 			// em.remove(member);
@@ -35,6 +37,15 @@ public class JpaMain2 {
 			// - 트랜잭션을 지원하는 쓰기 지연
 			// - 변경 감지
 			// - 지연 로딩
+
+			em.find(Member.class, 101l);
+
+			// 플러시 (flush)
+			// 영속성 컨텍스트의 변경 내용을 데이터베이스에 반영
+
+
+			System.out.println("member.getId() = " + member.getId());
+			System.out.println("member.getName() = " + member.getName());
 
 			tx.commit();
 		} catch (Exception e) {
